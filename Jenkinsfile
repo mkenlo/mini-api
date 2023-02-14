@@ -5,6 +5,8 @@ pipeline{
         stage("build"){
             steps{
                 sh "python --version"
+                sh 'python3 -m venv testing-venv'
+                sh 'source testing-venv/bin/activate'
                 sh 'pip install -r requirements.txt --user'
                 sh 'coverage run'
             }
