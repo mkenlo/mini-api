@@ -4,7 +4,7 @@ pipeline{
         
         stage("build"){
             steps{
-                echo "buiding project"
+                sh "python --version"
                 sh 'pip install -r requirements.txt'
                 sh 'coverage run'
             }
