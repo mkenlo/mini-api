@@ -4,7 +4,7 @@ pipeline{
         
         stage("build"){
             steps{
-                sh "mkdir /tmp"
+                sh "python --version"
             }
         }
         stage("test"){
