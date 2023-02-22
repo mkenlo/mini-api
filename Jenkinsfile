@@ -6,7 +6,6 @@ pipeline{
             steps{
                 sh "python3 --version"
                 sh 'pip3 install -r requirements.txt --user'
-                sh 'coverage run'
             }
         }
         stage("test"){
