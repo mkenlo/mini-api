@@ -1,16 +1,17 @@
-from flask import Flask, Response, request, jsonify
+from flask import Flask, Response, request, Blueprint
 import math
 import json
 
 app = Flask(__name__)
+api = Blueprint("api", __name__)
 
 
-@app.route("/")
+@api.route("/")
 def index():
     return Response("Hello", status=200)
 
 
-@app.route("/compute", methods=["POST"])
+@api.route("/compute", methods=["POST"])
 def compute():
     payload = request.get_json()
     if "number" in payload and isinstance(payload["number"], int) and payload["number"] > 0:
@@ -20,6 +21,6 @@ def compute():
         return Response("Bad payload", status=400)
 
 
-@app.route("/healthz")
+@api.route("/healthz")
 def health():
     return Response("ok", status=200)
