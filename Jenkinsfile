@@ -1,14 +1,14 @@
 pipeline{
-    agent { any { image 'python:3.10.7-alpine' } }
-    //agent any
+    //agent { any { image 'python:3.10.7-alpine' } }
+    agent any
     stages{
         
         stage("build and test"){
-          /*   agent{
-                docker {
+            agent{
+                any {
                     image 'python:3.10.7-alpine'
                 }
-            } */
+            } 
             steps{
                 sh "python3 --version"
                 sh 'pip install -r requirements.txt --user'
