@@ -15,13 +15,19 @@ pipeline{
                 sh 'python3 -m pytest'
             }
         }
+        stage('build  and push image'){
+            steps{
+                 app = docker.build('mkenlo/mini-api', './prod/')
+                withDockerRegistry([ credentialsId: "DockerHub Credentials", url: "" ]) {
+                    app.push()
+                }
+                }
+           
+        }
+
         stage("deploy"){
             steps{
                 echo "deploying"
-                script{
-                        app = docker.build('mini-api', '.prod/')
-                        app.push("latest")
-                    }
                 
             }
         }
