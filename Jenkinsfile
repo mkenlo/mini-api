@@ -19,7 +19,7 @@ pipeline{
             steps{
                     script{
                         app = docker.build('mkenlo/mini-api', ' -f ./prod/Dockerfile .')
-                        withDockerRegistry([ credentialsId: "DockerHub Credentials", url: "" ]) {
+                        withDockerRegistry([ credentialsId: "edd2d278-66f7-4779-8f9c-e37c1b9465dd", url: "" ]) {
                             app.push()
                         }
                     }
