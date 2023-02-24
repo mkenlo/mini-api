@@ -2,3 +2,4 @@ flask
 pytest
 coverage
 flask_cors
+gunicorn

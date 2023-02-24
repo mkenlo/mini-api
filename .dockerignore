@@ -1,0 +1,10 @@
+Jenkinsfile
+venv
+env
+.coverage
+.pytest_cache
+.git*
+.cache 
+__pycache__
+*.md
+*.pyc 
