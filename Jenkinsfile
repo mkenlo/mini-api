@@ -18,6 +18,11 @@ pipeline{
         stage("deploy"){
             steps{
                 echo "deploying"
+                script{
+                        app = docker.build('mini-api', '.prod/')
+                        app.push("latest")
+                    }
+                }
             }
         }
     }
