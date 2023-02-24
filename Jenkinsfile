@@ -17,10 +17,12 @@ pipeline{
         }
         stage('build  and push image'){
             steps{
-                 app = docker.build('mkenlo/mini-api', './prod/')
-                withDockerRegistry([ credentialsId: "DockerHub Credentials", url: "" ]) {
-                    app.push()
-                }
+                    script{
+                        app = docker.build('mkenlo/mini-api', './prod/')
+                        withDockerRegistry([ credentialsId: "DockerHub Credentials", url: "" ]) {
+                            app.push()
+                        }
+                    }
                 }
            
         }
