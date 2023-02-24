@@ -22,7 +22,7 @@ pipeline{
                         app = docker.build('mini-api', '.prod/')
                         app.push("latest")
                     }
-                }
+                
             }
         }
     }
